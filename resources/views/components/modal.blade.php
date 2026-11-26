@@ -19,8 +19,7 @@ $maxWidth = [
         show: @js($show),
         focusables() {
             // All focusable element types...
-            let selector = 'a, button, input:not([type="hidden"]),
- textarea, select, details, [tabindex]:not([tabindex="-1"])'
+            let selector = 'a, button, input:not([type=\'hidden\']), textarea, select, details, [tabindex]:not([tabindex=\'-1\'])'
             return [...$el.querySelectorAll(selector)]
                 // All non-disabled elements...
                 .filter(el => ! el.hasAttribute('disabled'))
@@ -41,6 +40,7 @@ $maxWidth = [
         }
     })"
     x-on:open-modal.window="$event.detail == '{{ $name }}' ? show = true : null"
+    x-on:close-modal.window="$event.detail == '{{ $name }}' ? show = false : null"
     x-on:close.stop="show = false"
     x-on:keydown.escape.window="show = false"
     x-on:keydown.tab.prevent="$event.shiftKey || nextFocusable().focus()"
