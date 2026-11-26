@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 var _iub = _iub || [];
-_iub.csConfiguration = {"siteId":4327660,"cookiePolicyId":97715433,"lang":"en","storage":{"useSiteId":true}};
+_iub.csConfiguration = {"siteId":4327660,"cookiePolicyId":97715433,"lang":"en","storage":{"useSiteId":true},"banner":{"position":"bottom"}};
 </script>
 <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4327660.js"></script>
 <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
