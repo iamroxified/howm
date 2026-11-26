@@ -111,6 +111,27 @@
      </div>
     </li>
     <li class="nav-item">
+     <a data-bs-toggle="collapse" href="#dcg">
+      <i class="fas fa-book-open"></i>
+      <p>Daily Communion with God</p>
+      <span class="caret"></span>
+     </a>
+     <div class="collapse" id="dcg">
+      <ul class="nav nav-collapse">
+       <li>
+        <a href="{{ route('admin.dcg.create') }}">
+         <span class="sub-item">Add DCG entry</span>
+        </a>
+       </li>
+       <li>
+        <a href="{{ route('admin.dcg.index') }}">
+         <span class="sub-item">All DCG entries</span>
+        </a>
+       </li>
+      </ul>
+     </div>
+    </li>
+    <li class="nav-item">
         <a data-bs-toggle="collapse" href="#books">
          <i class="fas fa-layer-group"></i>
          <p>Books</p>

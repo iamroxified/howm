@@ -69,7 +69,7 @@
      <div class="nav-item dropdown">
       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
       <div class="dropdown-menu m-0 rounded-0">
-       <a href="#" class="dropdown-item">DCG</a>
+       <a href="{{ route('resources.dcg') }}" class="dropdown-item">DCG</a>
        <a href="#" class="dropdown-item">Hour of Destiny</a>
        <a href="#" class="dropdown-item">Testimonies</a>
       <a href="{{ route('books.index') }}" class="dropdown-item">Buy Books</a>

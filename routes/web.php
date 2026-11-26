@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\SermonController;
 use App\Http\Controllers\PublicEventsController;
+use App\Http\Controllers\DcgController;
 use App\Http\Controllers\PublicSermonController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\GivingController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/about','about')->name('about');
@@ -42,6 +44,18 @@ Route::get('/ministry/{ministry}', [PublicMinistryController::class, 'show'])->n
 
 Route::get('/sermon', [PublicSermonController::class, 'index'])->name('sermon.index');
 Route::get('/sermon/{sermon}', [PublicSermonController::class, 'show'])->name('sermon.show');
+
+Route::get('/resources/dcg', [DcgController::class, 'publicIndex'])->name('resources.dcg');
+Route::get('/resources/dcg/{dcg}/file', [DcgController::class, 'file'])->name('resources.dcg.file');
+
+Route::middleware(['auth', AdminMiddleware::class])->prefix('admin/dcg')->name('admin.dcg.')->group(function () {
+    Route::get('/', [DcgController::class, 'index'])->name('index');
+    Route::get('/create', [DcgController::class, 'create'])->name('create');
+    Route::post('/', [DcgController::class, 'store'])->name('store');
+    Route::get('/{dcg}/edit', [DcgController::class, 'edit'])->name('edit');
+    Route::put('/{dcg}', [DcgController::class, 'update'])->name('update');
+    Route::delete('/{dcg}', [DcgController::class, 'destroy'])->name('destroy');
+});
 
 Route::get('/events', [PublicEventsController::class, 'index'])->name('events.index');
 Route::get('/events/{event}', [PublicEventsController::class, 'show'])->name('events.show');
