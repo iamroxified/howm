@@ -10,7 +10,43 @@
         }, 1);
     };
     spinner(0);
-    
+
+    document.querySelectorAll('.navbar .dropdown-toggle[data-bs-toggle="dropdown"]').forEach(function (toggle) {
+        toggle.addEventListener('click', function (event) {
+            if (window.matchMedia('(min-width: 992px)').matches) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            var menu = toggle.parentElement.querySelector('.dropdown-menu');
+            if (!menu) {
+                return;
+            }
+
+            var shouldOpen = !menu.classList.contains('show');
+            document.querySelectorAll('.navbar .dropdown-toggle[data-bs-toggle="dropdown"]').forEach(function (otherToggle) {
+                if (otherToggle === toggle) {
+                    return;
+                }
+
+                var otherMenu = otherToggle.parentElement.querySelector('.dropdown-menu');
+                if (otherMenu && otherMenu.classList.contains('show')) {
+                    var otherDropdown = bootstrap.Dropdown.getInstance(otherToggle) || new bootstrap.Dropdown(otherToggle);
+                    otherDropdown.hide();
+                }
+            });
+
+            var dropdown = bootstrap.Dropdown.getInstance(toggle) || new bootstrap.Dropdown(toggle);
+            if (shouldOpen) {
+                dropdown.show();
+            } else {
+                dropdown.hide();
+            }
+        });
+    });
+
     
     // Initiate the wowjs
     new WOW().init();
