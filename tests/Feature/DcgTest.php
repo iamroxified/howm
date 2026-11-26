@@ -133,6 +133,11 @@ class DcgTest extends TestCase
         $this->get(route('admin.dcg.index'))->assertForbidden();
     }
 
+    public function test_admin_routes_resolve_the_admin_middleware_alias(): void
+    {
+        $this->get('/admin/index')->assertRedirect(route('login'));
+    }
+
     private function user(bool $isAdmin): User
     {
         $user = new User([
