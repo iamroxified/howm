@@ -44,8 +44,16 @@ class DcgTest extends TestCase
 
         $this->get(route('resources.dcg'))
             ->assertOk()
+            ->assertSee('navbarCollapse')
             ->assertSee('A daily reflection')
             ->assertSee('Take time to pray.');
+    }
+
+    public function test_public_resources_menu_links_to_dcg(): void
+    {
+        $this->view('partials.navbar', ['ministries' => collect()])
+            ->assertSee(route('resources.dcg'))
+            ->assertSee('DCG');
     }
 
     public function test_verified_user_can_create_dcg_writeup_and_view_it_publicly(): void
