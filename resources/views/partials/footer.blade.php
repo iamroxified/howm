@@ -32,4 +32,4 @@
 <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
 <!-- Template Javascript -->
-<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}?v={{ filemtime(public_path('assets/js/main.js')) }}"></script>

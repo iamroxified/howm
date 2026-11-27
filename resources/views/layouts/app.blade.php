@@ -46,7 +46,7 @@ _iub.csConfiguration = {"siteId":4327660,"cookiePolicyId":97715433,"lang":"en","
   <!-- Customized Bootstrap Stylesheet -->
   <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Template Stylesheet -->
-  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css') }}?v={{ filemtime(public_path('assets/css/style.css')) }}" rel="stylesheet">
   {{-- <script src="{{ asset('assets/js/main.js') }}" defer></script> --}}
 </head>
 <body>
